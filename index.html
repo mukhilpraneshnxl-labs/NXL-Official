@@ -38,6 +38,53 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- ============== BOOT / INTRO OVERLAY ============== -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot__scan"></div>
+    <div class="boot__grid"></div>
+    <div class="boot__inner">
+      <div class="boot__logo">
+        <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <defs>
+            <linearGradient id="bootG1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#7CC8FF"/>
+              <stop offset="45%" stop-color="#3DA9F0"/>
+              <stop offset="100%" stop-color="#003FB8"/>
+            </linearGradient>
+            <linearGradient id="bootG2" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7CC8FF"/>
+              <stop offset="50%" stop-color="#3DA9F0"/>
+              <stop offset="100%" stop-color="#003FB8"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(60 60)">
+            <path class="boot__p1" d="M -42 -40 L -26 -40 L -26 40 L -42 40 Z" fill="#FFFFFF"/>
+            <path class="boot__p2" d="M -26 -40 L -10 -40 L 22 40 L 6 40 Z" fill="#FFFFFF"/>
+            <path class="boot__p3" d="M 36 -40 L 52 -40 L 6 40 L -10 40 Z" fill="url(#bootG1)"/>
+            <path class="boot__p4" d="M -10 -40 L 6 -40 L 52 40 L 36 40 Z" fill="url(#bootG2)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="boot__name" data-text="NEXEL LABS">NEXEL LABS</div>
+      <div class="boot__sub">NXL // SYSTEMS · BOOT v2026.08</div>
+      <div class="boot__bar"><div class="boot__bar-fill"></div></div>
+      <ul class="boot__log" id="bootLog">
+        <li data-line="[ok]">initializing NXL core</li>
+        <li data-line="[ok]">loading security modules</li>
+        <li data-line="[ok]">verifying identity tokens</li>
+        <li data-line="[ok]">establishing secure channel</li>
+        <li data-line="[ok]">system online</li>
+      </ul>
+      <div class="boot__skip" aria-hidden="true">PRESS ANY KEY · OR CLICK TO SKIP</div>
+    </div>
+  </div>
+
+  <!-- ============== GLOBAL OVERLAYS (cyber/hacker) ============== -->
+  <div class="overlay overlay--scanlines" aria-hidden="true"></div>
+  <div class="overlay overlay--vignette" aria-hidden="true"></div>
+  <div class="overlay overlay--noise" aria-hidden="true"></div>
+  <div class="overlay overlay--scan" aria-hidden="true"></div>
+
   <!-- ============== HEADER / NAVIGATION ============== -->
   <header class="nav" id="nav" data-nav>
     <div class="nav__inner container">
@@ -88,7 +135,24 @@
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__grid"></div>
         <div class="hero__glow"></div>
+        <div class="hero__binary" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
         <img class="hero__visual" src="./assets/images/hero-visual.svg" alt="" loading="eager" decoding="async">
+        <div class="hero__ticker" aria-hidden="true">
+          <div class="hero__ticker-track">
+            <span>NXL // SYSTEMS</span><span>·</span>
+            <span>SECURE CHANNEL ESTABLISHED</span><span>·</span>
+            <span>BUILD 2026.08</span><span>·</span>
+            <span>RUST :: TAURI :: WINDOWS</span><span>·</span>
+            <span>ENCRYPTION AES-256 ACTIVE</span><span>·</span>
+            <span>NXL // SYSTEMS</span><span>·</span>
+            <span>SECURE CHANNEL ESTABLISHED</span><span>·</span>
+            <span>BUILD 2026.08</span><span>·</span>
+            <span>RUST :: TAURI :: WINDOWS</span><span>·</span>
+            <span>ENCRYPTION AES-256 ACTIVE</span><span>·</span>
+          </div>
+        </div>
       </div>
 
       <div class="container hero__inner">
@@ -136,7 +200,21 @@
             <div class="hero__meta-divider" aria-hidden="true"></div>
             <div class="hero__meta-item">
               <span class="hero__meta-label">SYSTEM</span>
-              <span class="hero__meta-value hero__meta-status">ONLINE</span>
+              <span class="hero__meta-value hero__meta-status"><span class="hero__meta-blip"></span>ONLINE</span>
+            </div>
+          </div>
+
+          <div class="hero__terminal" data-reveal aria-hidden="true">
+            <div class="hero__terminal-head">
+              <span class="hero__terminal-dot hero__terminal-dot--r"></span>
+              <span class="hero__terminal-dot hero__terminal-dot--y"></span>
+              <span class="hero__terminal-dot hero__terminal-dot--g"></span>
+              <span class="hero__terminal-title">~/nxl — session</span>
+            </div>
+            <div class="hero__terminal-body">
+              <span class="hero__terminal-prompt">root@nxl:~$</span>
+              <span class="hero__terminal-cmd" id="heroCmd">init --secure</span>
+              <span class="hero__terminal-caret"></span>
             </div>
           </div>
         </div>
@@ -159,6 +237,48 @@
           <li class="signal__item"><span class="signal__dot"></span><span>TAURI</span></li>
           <li class="signal__item"><span class="signal__dot"></span><span>WINDOWS</span></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ============== STATS PANEL ============== -->
+    <section class="stats" aria-label="System stats">
+      <div class="container stats__inner">
+        <div class="stats__card" data-reveal>
+          <div class="stats__head">
+            <span class="stats__dot"></span>
+            <span class="stats__label">UPTIME</span>
+            <span class="stats__id">/ sys.uptime</span>
+          </div>
+          <div class="stats__value" data-count="99.98" data-suffix="%">00.00%</div>
+          <div class="stats__bar"><span></span></div>
+        </div>
+        <div class="stats__card" data-reveal>
+          <div class="stats__head">
+            <span class="stats__dot"></span>
+            <span class="stats__label">SCAN TIME</span>
+            <span class="stats__id">/ avg.ms</span>
+          </div>
+          <div class="stats__value" data-count="8" data-suffix="ms">0ms</div>
+          <div class="stats__bar"><span></span></div>
+        </div>
+        <div class="stats__card" data-reveal>
+          <div class="stats__head">
+            <span class="stats__dot"></span>
+            <span class="stats__label">ENCRYPTION</span>
+            <span class="stats__id">/ aes.bits</span>
+          </div>
+          <div class="stats__value" data-count="256" data-suffix="-BIT">0-BIT</div>
+          <div class="stats__bar"><span></span></div>
+        </div>
+        <div class="stats__card" data-reveal>
+          <div class="stats__head">
+            <span class="stats__dot"></span>
+            <span class="stats__label">SIGNAL</span>
+            <span class="stats__id">/ integrity</span>
+          </div>
+          <div class="stats__value" data-count="100" data-suffix="%">00%</div>
+          <div class="stats__bar"><span></span></div>
+        </div>
       </div>
     </section>
 
@@ -195,11 +315,24 @@
             </p>
 
             <div class="about__chips">
-              <span class="chip">Security</span>
-              <span class="chip">Privacy</span>
-              <span class="chip">Performance</span>
-              <span class="chip">Reliability</span>
-              <span class="chip">Engineering quality</span>
+              <span class="chip"><span class="chip__dot"></span>Security</span>
+              <span class="chip"><span class="chip__dot"></span>Privacy</span>
+              <span class="chip"><span class="chip__dot"></span>Performance</span>
+              <span class="chip"><span class="chip__dot"></span>Reliability</span>
+              <span class="chip"><span class="chip__dot"></span>Engineering quality</span>
+            </div>
+
+            <div class="about__code" aria-hidden="true">
+<pre><code><span class="code__kw">class</span> <span class="code__cl">NexelLabs</span>:
+    <span class="code__kw">def</span> <span class="code__fn">__init__</span>(self):
+        self.security  = <span class="code__nm">100</span>
+        self.privacy   = <span class="code__nm">100</span>
+        self.perf_ms   = <span class="code__nm">8</span>
+        self.trust     = <span class="code__st">"absolute"</span>
+
+    <span class="code__kw">def</span> <span class="code__fn">build</span>(self) -&gt; <span class="code__cl">Future</span>:
+        <span class="code__cm"># engineering what comes next</span>
+        <span class="code__kw">return</span> self.<span class="code__fn">deploy</span>()</code></pre>
             </div>
           </div>
         </div>
@@ -227,12 +360,12 @@
               detection, and security tooling in a single, focused experience.
             </p>
             <ul class="product__features">
-              <li><span class="check"></span>File scanning</li>
-              <li><span class="check"></span>Threat detection</li>
-              <li><span class="check"></span>Security tooling</li>
-              <li><span class="check"></span>Privacy-conscious architecture</li>
-              <li><span class="check"></span>Local processing where appropriate</li>
-              <li><span class="check"></span>Modern desktop UX</li>
+              <li><span class="check"></span><span class="check__label">$</span> File scanning</li>
+              <li><span class="check"></span><span class="check__label">$</span> Threat detection</li>
+              <li><span class="check"></span><span class="check__label">$</span> Security tooling</li>
+              <li><span class="check"></span><span class="check__label">$</span> Privacy-conscious architecture</li>
+              <li><span class="check"></span><span class="check__label">$</span> Local processing where appropriate</li>
+              <li><span class="check"></span><span class="check__label">$</span> Modern desktop UX</li>
             </ul>
             <div class="product__stack">
               <span class="product__stack-label">BUILT WITH</span>
@@ -367,43 +500,49 @@
           <li class="principle" data-reveal>
             <span class="principle__num">01</span>
             <div class="principle__body">
-              <h3 class="principle__title">Precision</h3>
+              <h3 class="principle__title"><span class="principle__caret">&gt;</span> Precision</h3>
               <p class="principle__desc">Build systems intentionally. Every component earns its place.</p>
+              <span class="principle__meta">// core.principle[0]</span>
             </div>
           </li>
           <li class="principle" data-reveal>
             <span class="principle__num">02</span>
             <div class="principle__body">
-              <h3 class="principle__title">Security</h3>
+              <h3 class="principle__title"><span class="principle__caret">&gt;</span> Security</h3>
               <p class="principle__desc">Treat security as architecture, not decoration.</p>
+              <span class="principle__meta">// core.principle[1]</span>
             </div>
           </li>
           <li class="principle" data-reveal>
             <span class="principle__num">03</span>
             <div class="principle__body">
-              <h3 class="principle__title">Privacy</h3>
+              <h3 class="principle__title"><span class="principle__caret">&gt;</span> Privacy</h3>
               <p class="principle__desc">Respect the people using the software. Data is theirs.</p>
+              <span class="principle__meta">// core.principle[2]</span>
             </div>
           </li>
           <li class="principle" data-reveal>
             <span class="principle__num">04</span>
             <div class="principle__body">
-              <h3 class="principle__title">Performance</h3>
+              <h3 class="principle__title"><span class="principle__caret">&gt;</span> Performance</h3>
               <p class="principle__desc">Make software efficient and responsive — felt, not advertised.</p>
+              <span class="principle__meta">// core.principle[3]</span>
             </div>
           </li>
           <li class="principle" data-reveal>
             <span class="principle__num">05</span>
             <div class="principle__body">
-              <h3 class="principle__title">Simplicity</h3>
+              <h3 class="principle__title"><span class="principle__caret">&gt;</span> Simplicity</h3>
               <p class="principle__desc">Hide unnecessary complexity from users. Surface what matters.</p>
+              <span class="principle__meta">// core.principle[4]</span>
             </div>
           </li>
           <li class="principle" data-reveal>
             <span class="principle__num">06</span>
             <div class="principle__body">
-              <h3 class="principle__title">Progress</h3>
+              <h3 class="principle__title"><span class="principle__caret">&gt;</span> Progress</h3>
               <p class="principle__desc">Build foundations that can evolve. Today's architecture should not constrain tomorrow.</p>
+              <span class="principle__meta">// core.principle[5]</span>
             </div>
           </li>
         </ol>
@@ -462,7 +601,11 @@
 
         <div class="vision" data-reveal>
           <div class="vision__line" aria-hidden="true"></div>
-          <h2 class="vision__title">
+          <div class="vision__corners" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="vision__id">NXL-VISION.001</div>
+          <h2 class="vision__title" data-text="The future should be engineered.">
             The future<br>
             <span class="text-accent">should be engineered.</span>
           </h2>
@@ -475,6 +618,11 @@
             <span class="text-accent">accessible</span>, and
             <span class="text-accent">thoughtfully designed</span>.
           </p>
+          <div class="vision__signal" aria-hidden="true">
+            <span class="vision__signal-dot"></span>
+            <span class="vision__signal-text">SIGNAL ACQUIRED · ALIGNMENT CONFIRMED</span>
+            <span class="vision__signal-dot"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -484,6 +632,10 @@
       <div class="container">
         <div class="cta" data-reveal>
           <div class="cta__bg" aria-hidden="true"></div>
+          <div class="cta__corners" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <img class="cta__lockup" src="./assets/images/logo-lockup.svg" alt="" loading="lazy" decoding="async" aria-hidden="true">
           <span class="eyebrow eyebrow--center">NXL // CONTACT</span>
           <h2 class="cta__title">
             Let's build<br>

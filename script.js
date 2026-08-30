@@ -112,27 +112,71 @@
   });
 
   /* ---------------------------------------------------------------------
-     Reveal on scroll
+     Reveal on scroll (hybrid: IntersectionObserver + scroll fallback)
      --------------------------------------------------------------------- */
   const revealEls = $$('[data-reveal]');
-  if ('IntersectionObserver' in window && revealEls.length && !reducedMotion) {
-    const revealObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            revealObs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
-    );
-    revealEls.forEach((el, i) => {
-      el.style.transitionDelay = Math.min(i * 40, 240) + 'ms';
-      revealObs.observe(el);
+  const revealedSet = new WeakSet();
+  revealEls.forEach((el, i) => {
+    el.style.transitionDelay = Math.min(i * 40, 240) + 'ms';
+  });
+
+  function revealEl(el) {
+    if (revealedSet.has(el)) return;
+    revealedSet.add(el);
+    el.classList.add('is-revealed');
+    // Force inline opacity/transform/filter so the rule always wins
+    // regardless of CSS specificity quirks in headless test environments.
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
+    el.style.filter = 'blur(0)';
+  }
+
+  function checkReveals() {
+    const vh = window.innerHeight || 800;
+    revealEls.forEach((el) => {
+      if (revealedSet.has(el)) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < vh * 0.92 && rect.bottom > 0) {
+        revealEl(el);
+      }
     });
+  }
+
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(revealEl);
   } else {
-    revealEls.forEach((el) => el.classList.add('is-revealed'));
+    let pending = false;
+    function onRevealScroll() {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        checkReveals();
+        pending = false;
+      });
+    }
+    // Primary: scroll/resize triggers
+    window.addEventListener('scroll', onRevealScroll, { passive: true });
+    window.addEventListener('resize', onRevealScroll);
+    // Secondary: IntersectionObserver (covers programmatic scrolls)
+    if ('IntersectionObserver' in window) {
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              revealEl(entry.target);
+              revealObs.unobserve(entry.target);
+            }
+          });
+          checkReveals();
+        },
+        { threshold: 0.01, rootMargin: '0px 0px -5% 0px' }
+      );
+      revealEls.forEach((el) => revealObs.observe(el));
+    }
+    // Initial check after layout settles
+    requestAnimationFrame(checkReveals);
+    setTimeout(checkReveals, 200);
+    setTimeout(checkReveals, 1000);
   }
 
   /* ---------------------------------------------------------------------
@@ -205,6 +249,139 @@
       } else {
         raf = null;
       }
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Hero terminal: typing effect
+     --------------------------------------------------------------------- */
+  const heroCmd = $('#heroCmd');
+  if (heroCmd) {
+    const lines = ['init --secure', 'verify --integrity', 'deploy --channel=alpha', 'system --online', 'guard --start'];
+    let lineIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    const baseText = heroCmd.textContent;
+    heroCmd.textContent = '';
+
+    function typeLoop() {
+      const current = lines[lineIdx];
+      if (!deleting) {
+        charIdx++;
+        heroCmd.textContent = current.slice(0, charIdx);
+        if (charIdx >= current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1400);
+          return;
+        }
+        setTimeout(typeLoop, 55 + Math.random() * 40);
+      } else {
+        charIdx--;
+        heroCmd.textContent = current.slice(0, charIdx);
+        if (charIdx <= 0) {
+          deleting = false;
+          lineIdx = (lineIdx + 1) % lines.length;
+          setTimeout(typeLoop, 280);
+          return;
+        }
+        setTimeout(typeLoop, 28);
+      }
+    }
+    setTimeout(typeLoop, 600);
+  }
+
+  /* ---------------------------------------------------------------------
+     Hero binary rain text — randomize contents per column
+     --------------------------------------------------------------------- */
+  if (!reducedMotion) {
+    const columns = $$('.hero__binary span');
+    columns.forEach((col) => {
+      let s = '';
+      for (let i = 0; i < 30; i++) s += Math.random() > 0.5 ? '1 ' : '0 ';
+      col.setAttribute('data-b', s);
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     Stats panel: count-up + bar fill when in view
+     --------------------------------------------------------------------- */
+  const statsCards = $$('.stats__card');
+  const countedStats = new WeakSet();
+  function countUp(card) {
+    if (countedStats.has(card)) return;
+    countedStats.add(card);
+    const valueEl = card.querySelector('.stats__value');
+    const target = parseFloat(valueEl.dataset.count || '0');
+    const suffix = valueEl.dataset.suffix || '';
+    const dur = 1400;
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = target * eased;
+      const text = (target % 1 === 0)
+        ? Math.round(v).toString()
+        : v.toFixed(2);
+      valueEl.textContent = text + suffix;
+      if (t < 1) requestAnimationFrame(step);
+      else valueEl.textContent = (target % 1 === 0 ? Math.round(target) : target.toFixed(2)) + suffix;
+    }
+    requestAnimationFrame(step);
+    card.classList.add('is-counted');
+  }
+  function checkStats() {
+    const vh = window.innerHeight || 800;
+    statsCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < vh * 0.85 && rect.bottom > 0) countUp(card);
+    });
+  }
+  if (statsCards.length) {
+    let pendingStats = false;
+    window.addEventListener('scroll', () => {
+      if (pendingStats) return;
+      pendingStats = true;
+      requestAnimationFrame(() => { checkStats(); pendingStats = false; });
+    }, { passive: true });
+    window.addEventListener('resize', checkStats);
+    requestAnimationFrame(checkStats);
+    setTimeout(checkStats, 600);
+  }
+
+  /* ---------------------------------------------------------------------
+     Boot / intro overlay
+     --------------------------------------------------------------------- */
+  const boot = $('#boot');
+  function dismissBoot() {
+    if (!boot || boot.classList.contains('is-done')) return;
+    boot.classList.add('is-done');
+    document.body.classList.remove('is-booting');
+    sessionStorage.setItem('nxl-booted', '1');
+    // Force the hidden state regardless of CSS transition quirks
+    setTimeout(() => {
+      if (boot) {
+        boot.style.opacity = '0';
+        boot.style.visibility = 'hidden';
+        boot.style.pointerEvents = 'none';
+      }
+    }, 700);
+  }
+  if (boot) {
+    if (sessionStorage.getItem('nxl-booted') === '1' || reducedMotion) {
+      // Skip the intro on revisit / reduced-motion users
+      boot.classList.add('is-done');
+      boot.style.opacity = '0';
+      boot.style.visibility = 'hidden';
+      boot.style.pointerEvents = 'none';
+    } else {
+      document.body.classList.add('is-booting');
+      // Auto-dismiss after the log finishes
+      const totalMs = 2600 + 400;
+      setTimeout(dismissBoot, totalMs);
+      // Click / key to skip
+      const skipHandler = () => dismissBoot();
+      boot.addEventListener('click', skipHandler, { once: true });
+      window.addEventListener('keydown', skipHandler, { once: true });
     }
   }
 

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="nxlBlueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7CC8FF"/>
+      <stop offset="35%" stop-color="#3DA9F0"/>
+      <stop offset="70%" stop-color="#0E62E8"/>
+      <stop offset="100%" stop-color="#003FB8"/>
+    </linearGradient>
+    <linearGradient id="nxlBlueGrad2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7CC8FF"/>
+      <stop offset="40%" stop-color="#3DA9F0"/>
+      <stop offset="75%" stop-color="#0E62E8"/>
+      <stop offset="100%" stop-color="#003FB8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Monogram: N + X merged -->
+  <g transform="translate(160 70)">
+    <!-- N left spine (white) — thin parallelogram tilted slightly -->
+    <path d="M -54 -52 L -34 -52 L -34 52 L -54 52 Z" fill="#FFFFFF"/>
+    <!-- N diagonal (white) -->
+    <path d="M -34 -52 L -14 -52 L 26 52 L 6 52 Z" fill="#FFFFFF"/>
+
+    <!-- X — left arm (top-right to bottom-left), blue gradient -->
+    <path d="M 46 -52 L 66 -52 L 6 52 L -14 52 Z" fill="url(#nxlBlueGrad)"/>
+
+    <!-- X — right arm (top-left to bottom-right), blue gradient — drawn after to create the notch -->
+    <path d="M -14 -52 L 6 -52 L 66 52 L 46 52 Z" fill="url(#nxlBlueGrad2)"/>
+  </g>
+
+  <!-- NEXEL -->
+  <text x="160" y="148" text-anchor="middle"
+        font-family="'Inter', 'Segoe UI', system-ui, sans-serif"
+        font-weight="800" font-size="38" letter-spacing="6"
+        fill="#FFFFFF">NEXEL</text>
+
+  <!-- LABS -->
+  <text x="160" y="186" text-anchor="middle"
+        font-family="'Inter', 'Segoe UI', system-ui, sans-serif"
+        font-weight="700" font-size="16" letter-spacing="22"
+        fill="#FFFFFF">LABS</text>
+</svg>
