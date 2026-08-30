@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark">
+
+  <title>Nexel Labs — Engineering What Comes Next</title>
+  <meta name="description" content="Nexel Labs builds modern software and security technology focused on privacy, performance, and thoughtful engineering.">
+  <meta name="author" content="Nexel Labs">
+  <meta name="keywords" content="Nexel Labs, NXL, Nexel Guard, security software, privacy, Rust, Tauri, Windows">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="./">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="alternate icon" href="./assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nexel Labs — Engineering What Comes Next">
+  <meta property="og:description" content="Modern software and security technology built around privacy, performance, and thoughtful engineering.">
+  <meta property="og:image" content="./assets/images/og-image.svg">
+  <meta property="og:url" content="./">
+  <meta property="og:site_name" content="Nexel Labs">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nexel Labs — Engineering What Comes Next">
+  <meta name="twitter:description" content="Modern software and security technology built around privacy, performance, and thoughtful engineering.">
+  <meta name="twitter:image" content="./assets/images/og-image.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============== HEADER / NAVIGATION ============== -->
+  <header class="nav" id="nav" data-nav>
+    <div class="nav__inner container">
+      <a href="#home" class="nav__brand" aria-label="Nexel Labs home">
+        <img class="nav__logo" src="./assets/images/logo-mark.svg" alt="" width="36" height="36" aria-hidden="true">
+        <span class="nav__brand-text">
+          <span class="nav__brand-mark">NXL</span>
+          <span class="nav__brand-name">Nexel Labs</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#home" class="nav__link nav__link--active" data-nav-link>Home</a>
+        <a href="#about" class="nav__link" data-nav-link>About</a>
+        <a href="#products" class="nav__link" data-nav-link>Products</a>
+        <a href="#technology" class="nav__link" data-nav-link>Technology</a>
+        <a href="#founder" class="nav__link" data-nav-link>Founder</a>
+        <a href="#contact" class="nav__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="#products" class="btn btn--primary btn--sm">
+          <span>Explore Nexel Guard</span>
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true">
+            <path d="M3 8 H13 M9 4 L13 8 L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="nav__menu" id="navMenu" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav__mobile" id="navMobile" hidden>
+      <a href="#home" class="nav__mobile-link" data-nav-link>Home</a>
+      <a href="#about" class="nav__mobile-link" data-nav-link>About</a>
+      <a href="#products" class="nav__mobile-link" data-nav-link>Products</a>
+      <a href="#technology" class="nav__mobile-link" data-nav-link>Technology</a>
+      <a href="#founder" class="nav__mobile-link" data-nav-link>Founder</a>
+      <a href="#contact" class="nav__mobile-link" data-nav-link>Contact</a>
+      <a href="#products" class="btn btn--primary btn--block">Explore Nexel Guard</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============== HERO ============== -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow"></div>
+        <img class="hero__visual" src="./assets/images/hero-visual.svg" alt="" loading="eager" decoding="async">
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="hero__eyebrow" data-reveal>
+            <span class="hero__dot"></span>
+            <span>NXL // SYSTEMS</span>
+            <span class="hero__build">BUILD 2026</span>
+          </div>
+
+          <h1 class="hero__title" data-reveal>
+            Engineering<br>
+            <span class="hero__title-accent">what comes next.</span>
+          </h1>
+
+          <p class="hero__lead" data-reveal>
+            Nexel Labs builds modern software and security technology designed around
+            <span class="text-accent">privacy</span>,
+            <span class="text-accent">performance</span>, and
+            <span class="text-accent">thoughtful engineering</span>.
+          </p>
+
+          <div class="hero__actions" data-reveal>
+            <a href="#products" class="btn btn--primary btn--lg">
+              <span>Explore Nexel Guard</span>
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true">
+                <path d="M3 8 H13 M9 4 L13 8 L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#about" class="btn btn--ghost btn--lg">
+              <span>Discover NXL</span>
+            </a>
+          </div>
+
+          <div class="hero__meta" data-reveal>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">FOUNDED</span>
+              <span class="hero__meta-value">2026</span>
+            </div>
+            <div class="hero__meta-divider" aria-hidden="true"></div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">FLAGSHIP</span>
+              <span class="hero__meta-value">Nexel Guard</span>
+            </div>
+            <div class="hero__meta-divider" aria-hidden="true"></div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">SYSTEM</span>
+              <span class="hero__meta-value hero__meta-status">ONLINE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>SCROLL</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ============== SIGNAL BAR ============== -->
+    <section class="signal" aria-label="Capabilities">
+      <div class="container">
+        <ul class="signal__list">
+          <li class="signal__item"><span class="signal__dot"></span><span>SECURITY ENGINEERING</span></li>
+          <li class="signal__item"><span class="signal__dot"></span><span>PRIVACY FIRST</span></li>
+          <li class="signal__item"><span class="signal__dot"></span><span>MODERN SYSTEMS</span></li>
+          <li class="signal__item"><span class="signal__dot"></span><span>RUST</span></li>
+          <li class="signal__item"><span class="signal__dot"></span><span>TAURI</span></li>
+          <li class="signal__item"><span class="signal__dot"></span><span>WINDOWS</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============== ABOUT ============== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>NXL // ABOUT</span>
+          <span class="section__id" data-reveal>NXL-002</span>
+        </div>
+
+        <div class="about">
+          <div class="about__left" data-reveal>
+            <h2 class="display">
+              Engineering<br>
+              <span class="text-accent">with intent.</span>
+            </h2>
+          </div>
+          <div class="about__right" data-reveal>
+            <p class="lead">
+              Nexel Labs is a technology company focused on building modern software and
+              security tools with a single guiding principle — make technology that respects
+              the people who use it.
+            </p>
+            <p>
+              We design systems that are secure by default, private by design, and performant
+              by engineering. Every layer — from the desktop runtime to the user interface —
+              is considered. Nothing is decoration. Nothing is accidental.
+            </p>
+            <p>
+              Our work spans security tooling, system utilities, and the foundations of
+              trustworthy software. We believe the next generation of technology will be
+              defined by how carefully it is built.
+            </p>
+
+            <div class="about__chips">
+              <span class="chip">Security</span>
+              <span class="chip">Privacy</span>
+              <span class="chip">Performance</span>
+              <span class="chip">Reliability</span>
+              <span class="chip">Engineering quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PRODUCTS / NEXEL GUARD ============== -->
+    <section class="section section--alt" id="products">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>NXL PRODUCT / 001</span>
+          <span class="section__id" data-reveal>NXL-003</span>
+        </div>
+
+        <div class="product">
+          <div class="product__intro" data-reveal>
+            <h2 class="display">
+              Nexel<br>
+              <span class="text-accent">Guard.</span>
+            </h2>
+            <p class="lead product__tagline">Smart Protection. Real Security.</p>
+            <p class="product__desc">
+              Nexel Guard is the security-focused desktop application being developed by
+              Nexel Labs. Built for modern Windows, it brings together scanning, threat
+              detection, and security tooling in a single, focused experience.
+            </p>
+            <ul class="product__features">
+              <li><span class="check"></span>File scanning</li>
+              <li><span class="check"></span>Threat detection</li>
+              <li><span class="check"></span>Security tooling</li>
+              <li><span class="check"></span>Privacy-conscious architecture</li>
+              <li><span class="check"></span>Local processing where appropriate</li>
+              <li><span class="check"></span>Modern desktop UX</li>
+            </ul>
+            <div class="product__stack">
+              <span class="product__stack-label">BUILT WITH</span>
+              <span class="product__stack-tag">Rust</span>
+              <span class="product__stack-tag">Tauri</span>
+              <span class="product__stack-tag">Windows</span>
+            </div>
+          </div>
+
+          <div class="product__showcase" data-reveal>
+            <div class="device">
+              <div class="device__tabs" role="tablist" aria-label="Nexel Guard views">
+                <button class="device__tab device__tab--active" role="tab" aria-selected="true" data-tab="dashboard">
+                  <span class="device__tab-dot"></span>Dashboard
+                </button>
+                <button class="device__tab" role="tab" aria-selected="false" data-tab="scan">
+                  <span class="device__tab-dot"></span>Scan
+                </button>
+                <button class="device__tab" role="tab" aria-selected="false" data-tab="threats">
+                  <span class="device__tab-dot"></span>Results
+                </button>
+                <span class="device__tab-indicator" aria-hidden="true"></span>
+              </div>
+              <div class="device__viewport">
+                <img class="device__screen device__screen--active" data-screen="dashboard" src="./assets/images/product-dashboard.svg" alt="Nexel Guard dashboard showing system protection status, metrics, and recent activity" loading="lazy" decoding="async">
+                <img class="device__screen" data-screen="scan" src="./assets/images/product-scan.svg" alt="Nexel Guard full system scan showing progress at 70% with current file path and statistics" loading="lazy" decoding="async">
+                <img class="device__screen" data-screen="threats" src="./assets/images/product-threats.svg" alt="Nexel Guard scan results view showing scan complete with no threats found" loading="lazy" decoding="async">
+              </div>
+            </div>
+
+            <div class="product__hint">
+              <span class="product__hint-dot"></span>
+              INTERACTIVE PREVIEW
+              <span class="product__hint-sep">·</span>
+              <span class="product__hint-mono">NXL-003.0.1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== TECHNOLOGY ============== -->
+    <section class="section" id="technology">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>NXL // STACK</span>
+          <span class="section__id" data-reveal>NXL-004</span>
+        </div>
+
+        <div class="section__heading" data-reveal>
+          <h2 class="display">
+            Built for the systems<br>
+            <span class="text-accent">that matter.</span>
+          </h2>
+          <p class="lead">
+            NXL engineering is rooted in a deliberate stack chosen for safety,
+            performance, and the realities of modern desktop computing.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <article class="tech-card" data-reveal>
+            <div class="tech-card__icon">
+              <img src="./assets/images/icon-rust.svg" alt="" width="40" height="40" aria-hidden="true">
+            </div>
+            <h3 class="tech-card__title">Rust</h3>
+            <p class="tech-card__desc">Systems-level performance and memory safety at the foundation of every NXL component.</p>
+            <span class="tech-card__tag">CORE</span>
+          </article>
+
+          <article class="tech-card" data-reveal>
+            <div class="tech-card__icon">
+              <img src="./assets/images/icon-tauri.svg" alt="" width="40" height="40" aria-hidden="true">
+            </div>
+            <h3 class="tech-card__title">Tauri</h3>
+            <p class="tech-card__desc">Lightweight desktop architecture that pairs native performance with a modern UI surface.</p>
+            <span class="tech-card__tag">SHELL</span>
+          </article>
+
+          <article class="tech-card" data-reveal>
+            <div class="tech-card__icon">
+              <img src="./assets/images/icon-windows.svg" alt="" width="40" height="40" aria-hidden="true">
+            </div>
+            <h3 class="tech-card__title">Windows</h3>
+            <p class="tech-card__desc">Focused engineering for modern Windows environments and the desktop user experience.</p>
+            <span class="tech-card__tag">PLATFORM</span>
+          </article>
+
+          <article class="tech-card" data-reveal>
+            <div class="tech-card__icon">
+              <img src="./assets/images/icon-security.svg" alt="" width="40" height="40" aria-hidden="true">
+            </div>
+            <h3 class="tech-card__title">Secure Architecture</h3>
+            <p class="tech-card__desc">Security considered throughout the system — at the boundaries and at the core.</p>
+            <span class="tech-card__tag">PRINCIPLE</span>
+          </article>
+
+          <article class="tech-card tech-card--wide" data-reveal>
+            <div class="tech-card__icon">
+              <img src="./assets/images/icon-privacy.svg" alt="" width="40" height="40" aria-hidden="true">
+            </div>
+            <h3 class="tech-card__title">Privacy by Design</h3>
+            <p class="tech-card__desc">
+              Respect user data and minimize unnecessary collection. Local processing where
+              appropriate. No surveillance, no telemetry beyond what is essential.
+            </p>
+            <span class="tech-card__tag">PRINCIPLE</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ENGINEERING PRINCIPLES ============== -->
+    <section class="section section--alt" id="principles">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>NXL // PRINCIPLES</span>
+          <span class="section__id" data-reveal>NXL-005</span>
+        </div>
+
+        <div class="section__heading" data-reveal>
+          <h2 class="display">
+            Engineering<br>
+            <span class="text-accent">principles.</span>
+          </h2>
+          <p class="lead">
+            Six ideas that guide every decision inside Nexel Labs.
+          </p>
+        </div>
+
+        <ol class="principles">
+          <li class="principle" data-reveal>
+            <span class="principle__num">01</span>
+            <div class="principle__body">
+              <h3 class="principle__title">Precision</h3>
+              <p class="principle__desc">Build systems intentionally. Every component earns its place.</p>
+            </div>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__num">02</span>
+            <div class="principle__body">
+              <h3 class="principle__title">Security</h3>
+              <p class="principle__desc">Treat security as architecture, not decoration.</p>
+            </div>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__num">03</span>
+            <div class="principle__body">
+              <h3 class="principle__title">Privacy</h3>
+              <p class="principle__desc">Respect the people using the software. Data is theirs.</p>
+            </div>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__num">04</span>
+            <div class="principle__body">
+              <h3 class="principle__title">Performance</h3>
+              <p class="principle__desc">Make software efficient and responsive — felt, not advertised.</p>
+            </div>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__num">05</span>
+            <div class="principle__body">
+              <h3 class="principle__title">Simplicity</h3>
+              <p class="principle__desc">Hide unnecessary complexity from users. Surface what matters.</p>
+            </div>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__num">06</span>
+            <div class="principle__body">
+              <h3 class="principle__title">Progress</h3>
+              <p class="principle__desc">Build foundations that can evolve. Today's architecture should not constrain tomorrow.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============== FOUNDER ============== -->
+    <section class="section" id="founder">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>NXL // FOUNDER</span>
+          <span class="section__id" data-reveal>NXL-006</span>
+        </div>
+
+        <div class="founder">
+          <div class="founder__portrait" data-reveal>
+            <div class="founder__frame">
+              <img src="./assets/images/founder.svg" alt="" loading="lazy" decoding="async">
+              <div class="founder__corner founder__corner--tl" aria-hidden="true"></div>
+              <div class="founder__corner founder__corner--tr" aria-hidden="true"></div>
+              <div class="founder__corner founder__corner--bl" aria-hidden="true"></div>
+              <div class="founder__corner founder__corner--br" aria-hidden="true"></div>
+              <span class="founder__id">NXL-006 // FOUNDER</span>
+            </div>
+          </div>
+
+          <div class="founder__content" data-reveal>
+            <span class="eyebrow eyebrow--blue">NXL · 001</span>
+            <h2 class="display">
+              Mukhil<br>
+              <span class="text-accent">Pranesh K.</span>
+            </h2>
+            <p class="founder__role">Founder — Nexel Labs</p>
+            <p class="lead">
+              Nexel Labs is built and led by Mukhil Pranesh K, working on modern software
+              and security technology with an emphasis on engineering quality, privacy,
+              and performance.
+            </p>
+            <p>
+              The company reflects a simple belief: technology should be careful, secure,
+              and respectful of the people using it. From system foundations to user
+              interfaces, every layer is considered.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== VISION ============== -->
+    <section class="section section--vision" id="vision">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>NXL // VISION</span>
+          <span class="section__id" data-reveal>NXL-007</span>
+        </div>
+
+        <div class="vision" data-reveal>
+          <div class="vision__line" aria-hidden="true"></div>
+          <h2 class="vision__title">
+            The future<br>
+            <span class="text-accent">should be engineered.</span>
+          </h2>
+          <p class="vision__lead">
+            Nexel Labs is working toward technology that is
+            <span class="text-accent">secure</span>,
+            <span class="text-accent">private</span>,
+            <span class="text-accent">useful</span>,
+            <span class="text-accent">efficient</span>,
+            <span class="text-accent">accessible</span>, and
+            <span class="text-accent">thoughtfully designed</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FINAL CTA ============== -->
+    <section class="section section--cta" id="contact">
+      <div class="container">
+        <div class="cta" data-reveal>
+          <div class="cta__bg" aria-hidden="true"></div>
+          <span class="eyebrow eyebrow--center">NXL // CONTACT</span>
+          <h2 class="cta__title">
+            Let's build<br>
+            <span class="text-accent">what comes next.</span>
+          </h2>
+          <p class="cta__lead">
+            Interested in Nexel Labs, Nexel Guard, engineering, collaboration, or future
+            products? Get in touch.
+          </p>
+          <div class="cta__actions">
+            <a href="mailto:hello@nexellabs.io" class="btn btn--primary btn--lg">
+              <span>Get in Touch</span>
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true">
+                <path d="M3 8 H13 M9 4 L13 8 L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#products" class="btn btn--ghost btn--lg">
+              <span>Explore Nexel Guard</span>
+            </a>
+          </div>
+          <div class="cta__contact">
+            <a href="mailto:hello@nexellabs.io" class="cta__contact-item">
+              <span class="cta__contact-label">EMAIL</span>
+              <span class="cta__contact-value">hello@nexellabs.io</span>
+            </a>
+            <span class="cta__contact-divider" aria-hidden="true"></span>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="cta__contact-item">
+              <span class="cta__contact-label">GITHUB</span>
+              <span class="cta__contact-value">Nexel Labs</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="footer__logo" aria-label="Nexel Labs">
+          <img src="./assets/images/logo-mark.svg" alt="" width="36" height="36" aria-hidden="true">
+          <span class="footer__brand-text">
+            <span class="footer__brand-mark">NXL</span>
+            <span class="footer__brand-name">Nexel Labs</span>
+          </span>
+        </a>
+        <p class="footer__tagline">Engineering what comes next.</p>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4 class="footer__col-title">Navigate</h4>
+          <ul class="footer__list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#founder">Founder</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Product</h4>
+          <ul class="footer__list">
+            <li><a href="#products">Nexel Guard</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Contact</h4>
+          <ul class="footer__list">
+            <li><a href="mailto:hello@nexellabs.io">hello@nexellabs.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <span>© 2026 Nexel Labs. All rights reserved.</span>
+        <span class="footer__bottom-meta">
+          <span>NXL // BUILD 2026</span>
+          <span class="footer__bottom-sep" aria-hidden="true">·</span>
+          <span class="footer__bottom-status"><span class="footer__status-dot"></span>SYSTEM ONLINE</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

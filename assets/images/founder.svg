@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" fill="none">
+  <defs>
+    <linearGradient id="avBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D1014"/>
+      <stop offset="100%" stop-color="#08090B"/>
+    </linearGradient>
+    <radialGradient id="avGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#0066FF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0066FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="360" height="360" rx="16" fill="url(#avBg)" stroke="#3B82F6" stroke-opacity="0.20"/>
+  <rect width="360" height="360" rx="16" fill="url(#avGlow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#3B82F6" stroke-opacity="0.06" stroke-width="1">
+    <line x1="0" y1="60" x2="360" y2="60"/>
+    <line x1="0" y1="120" x2="360" y2="120"/>
+    <line x1="0" y1="180" x2="360" y2="180"/>
+    <line x1="0" y1="240" x2="360" y2="240"/>
+    <line x1="0" y1="300" x2="360" y2="300"/>
+    <line x1="60" y1="0" x2="60" y2="360"/>
+    <line x1="120" y1="0" x2="120" y2="360"/>
+    <line x1="180" y1="0" x2="180" y2="360"/>
+    <line x1="240" y1="0" x2="240" y2="360"/>
+    <line x1="300" y1="0" x2="300" y2="360"/>
+  </g>
+
+  <!-- corner markers -->
+  <g stroke="#3B82F6" stroke-width="1" fill="none">
+    <path d="M16 24 L16 16 L24 16" stroke-opacity="0.6"/>
+    <path d="M344 24 L344 16 L336 16" stroke-opacity="0.6"/>
+    <path d="M16 336 L16 344 L24 344" stroke-opacity="0.6"/>
+    <path d="M344 336 L344 344 L336 344" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- monogram -->
+  <g transform="translate(180 180)">
+    <circle r="64" stroke="#3B82F6" stroke-opacity="0.18" fill="none"/>
+    <circle r="48" stroke="#3B82F6" stroke-opacity="0.30" fill="none"/>
+    <path d="M-22 -22 L-22 22 L-16 22 L-16 -8 L16 22 L22 22 L22 -22 L16 -22 L16 8 L-16 -22 Z" fill="#3B82F6"/>
+  </g>
+
+  <!-- footer label -->
+  <text x="180" y="332" text-anchor="middle" fill="#8B93A1" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">NXL-001 // FOUNDER</text>
+</svg>

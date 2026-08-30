@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" fill="none" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="winShadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="scanFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0066FF"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- window frame -->
+  <rect x="0" y="0" width="720" height="460" rx="14" fill="#070809"/>
+  <rect x="0.5" y="0.5" width="719" height="459" rx="13.5" stroke="#FFFFFF" stroke-opacity="0.08"/>
+
+  <!-- titlebar -->
+  <rect x="0" y="0" width="720" height="34" rx="14" fill="#0B0D10"/>
+  <rect x="0" y="0" width="720" height="1" fill="#FFFFFF" fill-opacity="0.06"/>
+  <rect x="0" y="33" width="720" height="1" fill="#000000" fill-opacity="0.5"/>
+  <circle cx="18" cy="17" r="5" fill="#FF5F57" fill-opacity="0.6"/>
+  <circle cx="36" cy="17" r="5" fill="#FEBC2E" fill-opacity="0.6"/>
+  <circle cx="54" cy="17" r="5" fill="#28C840" fill-opacity="0.6"/>
+  <text x="360" y="21" text-anchor="middle" fill="#8B93A1" font-size="11">Nexel Guard</text>
+  <text x="700" y="21" text-anchor="end" fill="#6B7280" font-size="10">v0.1</text>
+
+  <!-- sidebar -->
+  <rect x="0" y="34" width="180" height="426" fill="#0A0C10"/>
+  <line x1="180" y1="34" x2="180" y2="460" stroke="#FFFFFF" stroke-opacity="0.05"/>
+
+  <!-- sidebar brand -->
+  <text x="20" y="62" fill="#3B82F6" font-size="11" font-weight="600">NXL // GUARD</text>
+
+  <!-- nav items -->
+  <g font-size="12">
+    <rect x="12" y="86" width="156" height="30" rx="6" fill="#0066FF" fill-opacity="0.10"/>
+    <rect x="14" y="88" width="2" height="26" rx="1" fill="#3B82F6"/>
+    <circle cx="28" cy="101" r="2" fill="#60A5FA"/>
+    <text x="40" y="105" fill="#F5F7FA" font-weight="500">Dashboard</text>
+
+    <text x="40" y="139" fill="#8B93A1">Scan</text>
+    <text x="40" y="169" fill="#8B93A1">Threats</text>
+    <text x="40" y="199" fill="#8B93A1">Quarantine</text>
+    <text x="40" y="229" fill="#8B93A1">History</text>
+    <text x="40" y="259" fill="#8B93A1">Settings</text>
+  </g>
+
+  <!-- sidebar status -->
+  <rect x="12" y="380" width="156" height="64" rx="8" fill="#0D1014" stroke="#FFFFFF" stroke-opacity="0.06"/>
+  <circle cx="26" cy="398" r="3" fill="#3B82F6"/>
+  <circle cx="26" cy="398" r="6" fill="#3B82F6" fill-opacity="0.25"/>
+  <text x="38" y="402" fill="#F5F7FA" font-size="11" font-weight="500">Protection</text>
+  <text x="38" y="416" fill="#60A5FA" font-size="10">Active</text>
+  <text x="22" y="434" fill="#6B7280" font-size="9">Last scan · 2h ago</text>
+
+  <!-- main content area -->
+  <g transform="translate(204 56)">
+    <text x="0" y="0" fill="#F5F7FA" font-size="18" font-weight="600">Security Overview</text>
+    <text x="0" y="20" fill="#8B93A1" font-size="11">Real-time protection status</text>
+
+    <!-- status card -->
+    <rect x="0" y="36" width="500" height="100" rx="10" fill="#0D1014" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <circle cx="32" cy="86" r="22" stroke="#3B82F6" stroke-width="2" fill="#0066FF" fill-opacity="0.10"/>
+    <path d="M22 86 L29 93 L42 78" stroke="#60A5FA" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="78" fill="#F5F7FA" font-size="14" font-weight="500">System Protected</text>
+    <text x="68" y="96" fill="#8B93A1" font-size="11">All shields active. No threats detected.</text>
+    <rect x="68" y="108" width="62" height="18" rx="4" fill="#0066FF" fill-opacity="0.15"/>
+    <text x="99" y="121" text-anchor="middle" fill="#60A5FA" font-size="9" font-weight="500">RUN SCAN</text>
+
+    <!-- metric cards -->
+    <g transform="translate(0 152)">
+      <rect x="0" y="0" width="158" height="80" rx="10" fill="#0D1014" stroke="#FFFFFF" stroke-opacity="0.06"/>
+      <text x="14" y="22" fill="#8B93A1" font-size="10">FILES SCANNED</text>
+      <text x="14" y="50" fill="#F5F7FA" font-size="22" font-weight="600">128,431</text>
+      <text x="14" y="68" fill="#60A5FA" font-size="10">↑ 2.4k today</text>
+
+      <rect x="170" y="0" width="158" height="80" rx="10" fill="#0D1014" stroke="#FFFFFF" stroke-opacity="0.06"/>
+      <text x="184" y="22" fill="#8B93A1" font-size="10">THREATS BLOCKED</text>
+      <text x="184" y="50" fill="#F5F7FA" font-size="22" font-weight="600">0</text>
+      <text x="184" y="68" fill="#6B7280" font-size="10">last 30 days</text>
+
+      <rect x="340" y="0" width="160" height="80" rx="10" fill="#0D1014" stroke="#FFFFFF" stroke-opacity="0.06"/>
+      <text x="354" y="22" fill="#8B93A1" font-size="10">ENGINE</text>
+      <text x="354" y="50" fill="#F5F7FA" font-size="14" font-weight="500">Nexel Core</text>
+      <text x="354" y="68" fill="#60A5FA" font-size="10">v0.1.4 · ready</text>
+    </g>
+
+    <!-- recent activity -->
+    <g transform="translate(0 252)">
+      <text x="0" y="0" fill="#F5F7FA" font-size="13" font-weight="500">Recent Activity</text>
+      <rect x="0" y="12" width="500" height="120" rx="10" fill="#0D1014" stroke="#FFFFFF" stroke-opacity="0.06"/>
+      <g font-size="11">
+        <circle cx="22" cy="38" r="3" fill="#3B82F6"/>
+        <text x="36" y="42" fill="#F5F7FA">Quick scan completed</text>
+        <text x="478" y="42" text-anchor="end" fill="#6B7280">12:42</text>
+
+        <circle cx="22" cy="62" r="3" fill="#3B82F6"/>
+        <text x="36" y="66" fill="#F5F7FA">Definitions updated</text>
+        <text x="478" y="66" text-anchor="end" fill="#6B7280">11:08</text>
+
+        <circle cx="22" cy="86" r="3" fill="#3B82F6"/>
+        <text x="36" y="90" fill="#F5F7FA">Shield status verified</text>
+        <text x="478" y="90" text-anchor="end" fill="#6B7280">10:30</text>
+
+        <circle cx="22" cy="110" r="3" fill="#60A5FA"/>
+        <text x="36" y="114" fill="#A7ADB7">System boot check passed</text>
+        <text x="478" y="114" text-anchor="end" fill="#6B7280">09:00</text>
+      </g>
+    </g>
+  </g>
+</svg>
